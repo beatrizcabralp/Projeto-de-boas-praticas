@@ -1,0 +1,26 @@
+header{
+    display: flex;
+    justify-content: space-between;
+    padding: 21px;
+    background-color: aqua;
+}
+
+.secao-navbar
+{
+    display:flex;
+}
+
+.secao-navbar li
+{
+  padding: 0px 10px 0px 10px;
+}
+
+.secao-navbar a
+{
+    text-decoration: none;
+}
+
+.secao-navbar a:hover
+{
+    color: red;
+}

@@ -1,0 +1,29 @@
+footer
+{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+    padding: 21px;
+    background-color: aqua;
+}
+
+#itens-do-footer ul
+{
+    padding: 0px 10px 0px 10px;
+}
+
+#contatos li
+{
+    margin-bottom: 5px;
+}
+
+#redes-sociais
+{
+    display: flex;
+}
+
+#redes-sociais li a
+{
+    padding: 0px 5px 0px 0px;
+    color: orange;
+}
