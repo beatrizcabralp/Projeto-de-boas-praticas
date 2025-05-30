@@ -2,7 +2,12 @@ header{
     display: flex;
     justify-content: space-between;
     padding: 21px;
-    background-color: aqua;
+    background-color: burlywood;
+    color: #FFFFFF;
+    font-family:'Times New Roman', Times, serif;
+    font-size: 18px;
+    height: 30px;
+    align-items: center;
 }
 
 .secao-navbar
@@ -18,9 +23,10 @@ header{
 .secao-navbar a
 {
     text-decoration: none;
+    color: #FFFFFF;
 }
 
 .secao-navbar a:hover
 {
-    color: red;
+    border-bottom: 3px solid #FFFFFF;
 }
