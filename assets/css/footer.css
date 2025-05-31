@@ -4,7 +4,10 @@ footer
     justify-content: space-between;
     margin-top: 15px;
     padding: 21px;
-    background-color: aqua;
+    background-color: burlywood;
+    color: #FFFFFF;
+    font-family:'Times New Roman', Times, serif;
+    font-size: 18px;
 }
 
 #itens-do-footer ul
@@ -26,4 +29,10 @@ footer
 {
     padding: 0px 5px 0px 0px;
     color: orange;
+}
+
+#redes-sociais img
+{
+    background-color: #FFFFFF;
+    color: #FFFFFF;
 }

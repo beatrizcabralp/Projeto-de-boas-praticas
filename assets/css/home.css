@@ -38,3 +38,21 @@
     display: flex;
 }
 
+.caixas-nossos-valores
+{
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.titulos-nossos-valores
+{
+    display: flex;
+    justify-content: center;
+}
+
+.caixa-nossos-valores p
+{
+   display: flex;
+   text-align: justify;
+   padding: 15px;
+}
