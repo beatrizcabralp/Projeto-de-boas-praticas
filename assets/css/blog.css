@@ -1,0 +1,56 @@
+main
+{
+    font-family:'Times New Roman', Times, serif;
+    padding: 20px;
+}
+
+#criar-publicao
+{
+    font-size: 40px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+.caixa-criar-publicacao
+{
+    margin-bottom: 20px;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.caixa-criar-publicacao h2
+{
+    border-left: 5px solid burlywood;
+    margin-bottom: 10px;
+    padding-left: 5px;
+}
+
+.texto-criar-publicacao
+{
+    width: 99%;
+    height: 100px;
+    border-radius: 10px;
+    padding-top: 10px;
+    padding-left: 10px;
+}
+
+#caixa-botao-publicar
+{
+   display: flex;
+   justify-content: flex-end;
+}
+
+.botao-publicar
+{
+  width: 100px;
+  height: 30px;
+  color: #FFFFFF;
+  background-color: burlywood;
+  border-radius: 5px;
+  border-color: burlywood;
+  cursor: pointer;
+}
