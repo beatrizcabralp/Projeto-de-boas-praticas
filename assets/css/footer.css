@@ -18,11 +18,14 @@ footer
 #contatos li
 {
     margin-bottom: 5px;
+    display: flex;
+    justify-content: right;
 }
 
 #redes-sociais
 {
     display: flex;
+    justify-content: right;
 }
 
 #redes-sociais li a

@@ -7,7 +7,7 @@
 #historia, #valores
 {
     font-family:'Times New Roman', Times, serif;
-    padding: 20px;
+    padding: 20px 20px 0px 20px;
 
 }
 
@@ -35,8 +35,7 @@
 
 .caixa-nossos-valores
 {
-    margin-right: 10px;
-    margin-left: 10px;
+    margin: 10px 10px 20px 10px;
     border: 10px solid burlywood;
     background-color: burlywood;
     border-radius: 10px;
