@@ -33,6 +33,8 @@ footer
 
 #redes-sociais img
 {
-    background-color: #FFFFFF;
+    
     color: #FFFFFF;
+    width: 30px;
+    height: 30px;
 }

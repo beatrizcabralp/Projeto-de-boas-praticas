@@ -33,21 +33,46 @@
     text-align: justify;
 }
 
-.caixas-nossos-valores
+.caixa-nossos-valores
 {
-    display: flex;
+    margin-right: 10px;
+    margin-left: 10px;
+    border: 10px solid burlywood;
+    background-color: burlywood;
+    border-radius: 10px;
 }
 
 .caixas-nossos-valores
 {
+    display: flex;
     justify-content: center;
     margin-top: 20px;
+}
+
+.nossos-valores-imagem
+{
+    display: flex;
+    justify-content: right;
+    background-color: burlywood;
+    border-radius: 10px;
+}
+
+.nossos-valores-imagem img
+{
+    height: 100px;
+    width: 100px;
+    background-color: #FFFFFF;
+    border-radius:100%;
+    
 }
 
 .titulos-nossos-valores
 {
     display: flex;
-    justify-content: center;
+    justify-content:left;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #FFFFFF;
+    color: #FFFFFF;
 }
 
 .caixa-nossos-valores p
