@@ -29,19 +29,32 @@ main
     padding-left: 5px;
 }
 
+
 .texto-criar-publicacao
 {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
     width: 99%;
     height: 100px;
     border-radius: 10px;
-    padding-top: 10px;
     padding-left: 10px;
+    padding-top: 15px;
+}
+
+
+
+.texto-criar-publicacao::placeholder
+{
+    top: 15px;
+    position: absolute;
 }
 
 #caixa-botao-publicar
 {
    display: flex;
    justify-content: flex-end;
+   margin-top: 10px;
 }
 
 .botao-publicar

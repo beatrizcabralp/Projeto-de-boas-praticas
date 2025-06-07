@@ -51,18 +51,25 @@
                 <div class="caixa-criar-publicacao">
 
                     <h2>Escreva sua publicação</h2>
-                    <textarea class="texto-criar-publicacao" placeholder="O que vamos publicar hoje?"></textarea>
 
-                </div>
+                    <form class="area-texto-criar-publicacao">
 
-                <div id="caixa-botao-publicar">
+                        <textarea name="criapost" class="texto-criar-publicacao" placeholder="O que vamos publicar hoje?"></textarea>
 
-                    <button class="botao-publicar">Publicar</button>
+                        <div id="caixa-botao-publicar">
+
+                            <button type="submit" class="botao-publicar">Publicar</button>
+
+                        </div>
+
+                    </form>
 
                 </div>
 
                 
             </section>
+
+            <ul id="lista-de-publicacoes"></ul>
 
         </main>
 
@@ -87,6 +94,8 @@
             </section>
 
         </footer>
+
+        <script src="../assets/js/blog.js"></script>
 
     </body>
 
