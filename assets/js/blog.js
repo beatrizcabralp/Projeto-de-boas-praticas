@@ -72,7 +72,7 @@ postagem.addEventListener('submit', function criaPostController(InfosdoEvento) {
 document.querySelector('#lista-de-publicacoes').addEventListener('click', function (InfosdoEvento) {
         console.log('houve um click');
         const elementoAtual = InfosdoEvento.target;
-        const postId = elementoAtual.parentNode.getAttribute('data-id');
+        const postagensId = elementoAtual.parentNode.getAttribute('data-id');
         const botaoDeDeletarClick = InfosdoEvento.target.classList.contains('botao-deletar');
         if(botaoDeDeletarClick){
             console.log('Clicou no botão de apagar',);
@@ -96,7 +96,7 @@ document.querySelector('#lista-de-publicacoes').addEventListener('click', functi
         } else {
             // Desabilita a edição e salva
             spanContent.contentEditable = 'false';
-            blog.edicaodapostagem(postId, spanContent.innerText);
+            blog.edicaodapostagem(postagensId, spanContent.innerText);
             elementoAtual.textContent = 'editar'; // Volta o texto do botão para "editar"
             elementoAtual.classList.remove('salvar-ativo'); // Remove a classe de estilização
             console.log('Postagem atualizada:', blog.postagens);
