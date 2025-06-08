@@ -30,7 +30,7 @@ const blog = {
         listaDePublicacoes.insertAdjacentHTML('afterbegin', `
             <li id="publicacao">
                 ${dados.content}
-                <button>deletar</button>
+                <button class="botao-deletar">deletar</button>
             </li>
         `)
     }
@@ -53,6 +53,12 @@ postagem.addEventListener('submit', function criaPostController(InfosdoEvento) {
 })
 
 document.querySelector('#lista-de-publicacoes').addEventListener('click', function (InfosdoEvento) {
-        console.log('houve um click', InfosdoEvento.target);
+        console.log('houve um click');
+        const elementoAtual = InfosdoEvento.target;
+        const botaoDeDeletarClick = InfosdoEvento.target.classList.contains('botao-deletar')
+        if(botaoDeDeletarClick){
+            console.log('Clicou no botão de apagar', );
+            elementoAtual.parentNode.remove();
+        }
     })
 
