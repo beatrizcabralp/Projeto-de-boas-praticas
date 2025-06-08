@@ -11,6 +11,11 @@ const blog = {
             content: 'meu primeiro post'
         }
     ],
+    lerpostagem(){
+        blog.postagens.forEach(({owner, content}) => {
+            blog.criarpostagem({owner: owner, content: content}, true);
+        })
+    },
     criarpostagem(dados, html0nly = false) {
         if(!html0nly){
             blog.postagens.push({
@@ -22,16 +27,19 @@ const blog = {
         
 
         const listaDePublicacoes = document.querySelector('#lista-de-publicacoes');
-        listaDePublicacoes.insertAdjacentHTML('afterbegin', `<li id="publicacao">${dados.content}</li>`)
+        listaDePublicacoes.insertAdjacentHTML('afterbegin', `
+            <li id="publicacao">
+                ${dados.content}
+                <button>deletar</button>
+            </li>
+        `)
     }
 }
 
 const postagem = document.querySelector('form');
 console.log(postagem);
 
-blog.postagens.forEach(({owner, content}) => {
-    blog.criarpostagem({owner: owner, content: content}, true);
-})
+blog.lerpostagem();
 
 postagem.addEventListener('submit', function criaPostController(InfosdoEvento) {
     InfosdoEvento.preventDefault();
@@ -42,6 +50,9 @@ postagem.addEventListener('submit', function criaPostController(InfosdoEvento) {
    
     criapost.value='';
 
-
 })
+
+document.querySelector('#lista-de-publicacoes').addEventListener('click', function (InfosdoEvento) {
+        console.log('houve um click', InfosdoEvento.target);
+    })
 
