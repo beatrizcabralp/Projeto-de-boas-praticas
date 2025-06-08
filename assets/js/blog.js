@@ -5,11 +5,11 @@ const blog = {
         }
     ],
     postagens:[
-        {
+       /* {
             id: Date.now(),
             owner: 'beatriz',
             content: 'meu primeiro post'
-        }
+        }*/
     ],
     lerpostagem(){
         blog.postagens.forEach(({id, owner, content}) => {
@@ -30,7 +30,9 @@ const blog = {
         const listaDePublicacoes = document.querySelector('#lista-de-publicacoes');
         listaDePublicacoes.insertAdjacentHTML('afterbegin', `
             <li data-id="${idinterno}" id="publicacao">
-                ${dados.content}
+                <span contenteditable>
+                     ${dados.content}
+                </span>
                 <button class="botao-deletar">deletar</button>
             </li>
         `)
@@ -40,6 +42,13 @@ const blog = {
             return postagematual.id !== Number(id);
         })
         blog.postagens = listadepostagematualizada;
+    },
+    edicaodapostagem(id, novoConteudo){
+        const postagemqueseraeditada = blog.postagens.find((postagens) => {
+            return postagens.id === Number(id);
+        });
+        console.log(postagemqueseraeditada);
+        postagemqueseraeditada.content = novoConteudo;
     }
 }
 
@@ -70,5 +79,15 @@ document.querySelector('#lista-de-publicacoes').addEventListener('click', functi
             elementoAtual.parentNode.remove();
             console.log(blog.postagens);
         }
-    })
+})
+
+document.querySelector('#lista-de-publicacoes').addEventListener('input', function (InfosdoEvento){
+    console.log('houve uma edição');
+    const elementoAtual = InfosdoEvento.target;
+    const id = elementoAtual.parentNode.getAttribute('data-id');
+
+    //console.log('ID: ', id);
+    //console.log('Valor: ', elementoAtual.innerText);
+    blog.edicaodapostagem(id, elementoAtual.innerText);
+})
 
