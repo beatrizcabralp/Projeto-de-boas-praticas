@@ -6,20 +6,21 @@ const blog = {
     ],
     postagens:[
         {
-            id: 1,
+            id: Date.now(),
             owner: 'beatriz',
             content: 'meu primeiro post'
         }
     ],
     lerpostagem(){
-        blog.postagens.forEach(({owner, content}) => {
-            blog.criarpostagem({owner: owner, content: content}, true);
+        blog.postagens.forEach(({id, owner, content}) => {
+            blog.criarpostagem({id, owner: owner, content: content}, true);
         })
     },
     criarpostagem(dados, html0nly = false) {
+        const idinterno = Date.now();
         if(!html0nly){
             blog.postagens.push({
-                id: blog.postagens.length + 1,
+                id: dados.id || idinterno,
                 owner: dados.owner,
                 content: dados.content
             })
@@ -28,11 +29,17 @@ const blog = {
 
         const listaDePublicacoes = document.querySelector('#lista-de-publicacoes');
         listaDePublicacoes.insertAdjacentHTML('afterbegin', `
-            <li id="publicacao">
+            <li data-id="${idinterno}" id="publicacao">
                 ${dados.content}
                 <button class="botao-deletar">deletar</button>
             </li>
         `)
+    },
+    apagarpostagem(id){
+        const listadepostagematualizada = blog.postagens.filter((postagematual) => {
+            return postagematual.id !== Number(id);
+        })
+        blog.postagens = listadepostagematualizada;
     }
 }
 
@@ -55,10 +62,13 @@ postagem.addEventListener('submit', function criaPostController(InfosdoEvento) {
 document.querySelector('#lista-de-publicacoes').addEventListener('click', function (InfosdoEvento) {
         console.log('houve um click');
         const elementoAtual = InfosdoEvento.target;
-        const botaoDeDeletarClick = InfosdoEvento.target.classList.contains('botao-deletar')
+        const botaoDeDeletarClick = InfosdoEvento.target.classList.contains('botao-deletar');
         if(botaoDeDeletarClick){
-            console.log('Clicou no botão de apagar', );
+            console.log('Clicou no botão de apagar',);
+            const id = elementoAtual.parentNode.getAttribute('data-id');
+            blog.apagarpostagem(id);
             elementoAtual.parentNode.remove();
+            console.log(blog.postagens);
         }
     })
 
