@@ -10,8 +10,9 @@ postagem.addEventListener('submit', function criaPostController(InfosdoEvento) {
     const criapost = document.querySelector('textarea[name="criapost"]');
     const listaDePublicacoes = document.querySelector('#lista-de-publicacoes');
 
-    listaDePublicacoes.insertAdjacentHTML('afterbegin', `<li>${criapost.value}</li>`)
+    listaDePublicacoes.insertAdjacentHTML('afterbegin', `<li id="publicacao">${criapost.value}</li>`)
     criapost.value='';
 
 
 })
+

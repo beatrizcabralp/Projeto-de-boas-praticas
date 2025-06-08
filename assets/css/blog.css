@@ -67,3 +67,23 @@ main
   border-color: burlywood;
   cursor: pointer;
 }
+
+/*
+#lista-de-publicacoes
+{
+   text-align: justify;
+   background-color: #FFFFFF;
+   padding: 15px;
+   border: 5px solid burlywood;
+   border-radius: 30px;
+}*/
+
+#publicacao
+{
+    padding: 15px;
+    border: 5px solid burlywood;
+    margin: 10px 0px 10px 0px;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    text-align: justify;
+}
