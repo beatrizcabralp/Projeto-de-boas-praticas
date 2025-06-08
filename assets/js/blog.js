@@ -30,9 +30,10 @@ const blog = {
         const listaDePublicacoes = document.querySelector('#lista-de-publicacoes');
         listaDePublicacoes.insertAdjacentHTML('afterbegin', `
             <li data-id="${idinterno}" id="publicacao">
-                <span contenteditable>
+                <span contenteditable="false" class="editar-publicacao">
                      ${dados.content}
                 </span>
+                <button class="botao-editar">editar</button>
                 <button class="botao-deletar">deletar</button>
             </li>
         `)
@@ -71,6 +72,7 @@ postagem.addEventListener('submit', function criaPostController(InfosdoEvento) {
 document.querySelector('#lista-de-publicacoes').addEventListener('click', function (InfosdoEvento) {
         console.log('houve um click');
         const elementoAtual = InfosdoEvento.target;
+        const postId = elementoAtual.parentNode.getAttribute('data-id');
         const botaoDeDeletarClick = InfosdoEvento.target.classList.contains('botao-deletar');
         if(botaoDeDeletarClick){
             console.log('Clicou no botão de apagar',);
@@ -79,15 +81,35 @@ document.querySelector('#lista-de-publicacoes').addEventListener('click', functi
             elementoAtual.parentNode.remove();
             console.log(blog.postagens);
         }
+
+        const botaoDeEditarClick = elementoAtual.classList.contains('botao-editar');
+    if(botaoDeEditarClick){
+        console.log('Clicou no botão de editar');
+        const spanContent = elementoAtual.parentNode.querySelector('.editar-publicacao');
+
+        if (spanContent.contentEditable === 'false' || spanContent.contentEditable === '') {
+            // Habilita a edição
+            spanContent.contentEditable = 'true';
+            spanContent.focus(); // Coloca o cursor no texto para facilitar a edição
+            elementoAtual.textContent = 'salvar'; // Muda o texto do botão para "salvar"
+            elementoAtual.classList.add('salvar-ativo'); // Adiciona uma classe para estilização, se quiser
+        } else {
+            // Desabilita a edição e salva
+            spanContent.contentEditable = 'false';
+            blog.edicaodapostagem(postId, spanContent.innerText);
+            elementoAtual.textContent = 'editar'; // Volta o texto do botão para "editar"
+            elementoAtual.classList.remove('salvar-ativo'); // Remove a classe de estilização
+            console.log('Postagem atualizada:', blog.postagens);
+        }
+    }
 })
 
 document.querySelector('#lista-de-publicacoes').addEventListener('input', function (InfosdoEvento){
-    console.log('houve uma edição');
-    const elementoAtual = InfosdoEvento.target;
-    const id = elementoAtual.parentNode.getAttribute('data-id');
-
-    //console.log('ID: ', id);
-    //console.log('Valor: ', elementoAtual.innerText);
-    blog.edicaodapostagem(id, elementoAtual.innerText);
+    if (InfosdoEvento.target.classList.contains('editar-publicacao')) {
+        console.log('houve uma edição (digitando)');
+        const elementoAtual = InfosdoEvento.target;
+        const id = elementoAtual.parentNode.getAttribute('data-id');
+        blog.edicaodapostagem(id, elementoAtual.innerText);
+    }
 })
 
