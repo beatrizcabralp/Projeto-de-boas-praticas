@@ -4,13 +4,7 @@ const blog = {
           username: 'beatriz',
         }
     ],
-    postagens:[
-       /* {
-            id: Date.now(),
-            owner: 'beatriz',
-            content: 'meu primeiro post'
-        }*/
-    ],
+    postagens:[],
     lerpostagem(){
         blog.postagens.forEach(({id, owner, content}) => {
             blog.criarpostagem({id, owner: owner, content: content}, true);
@@ -70,19 +64,19 @@ postagem.addEventListener('submit', function criaPostController(InfosdoEvento) {
 })
 
 document.querySelector('#lista-de-publicacoes').addEventListener('click', function (InfosdoEvento) {
-        console.log('houve um click');
-        const elementoAtual = InfosdoEvento.target;
-        const postagensId = elementoAtual.parentNode.getAttribute('data-id');
-        const botaoDeDeletarClick = InfosdoEvento.target.classList.contains('botao-deletar');
-        if(botaoDeDeletarClick){
-            console.log('Clicou no botão de apagar',);
-            const id = elementoAtual.parentNode.getAttribute('data-id');
-            blog.apagarpostagem(id);
-            elementoAtual.parentNode.remove();
-            console.log(blog.postagens);
-        }
+    console.log('houve um click');
+    const elementoAtual = InfosdoEvento.target;
+    const postagensId = elementoAtual.parentNode.getAttribute('data-id');
+    const botaoDeDeletarClick = InfosdoEvento.target.classList.contains('botao-deletar');
+    if(botaoDeDeletarClick){
+        console.log('Clicou no botão de apagar',);
+        const id = elementoAtual.parentNode.getAttribute('data-id');
+        blog.apagarpostagem(id);
+        elementoAtual.parentNode.remove();
+        console.log(blog.postagens);
+    }
 
-        const botaoDeEditarClick = elementoAtual.classList.contains('botao-editar');
+    const botaoDeEditarClick = elementoAtual.classList.contains('botao-editar');
     if(botaoDeEditarClick){
         console.log('Clicou no botão de editar');
         const spanContent = elementoAtual.parentNode.querySelector('.editar-publicacao');
@@ -90,15 +84,14 @@ document.querySelector('#lista-de-publicacoes').addEventListener('click', functi
         if (spanContent.contentEditable === 'false' || spanContent.contentEditable === '') {
             // Habilita a edição
             spanContent.contentEditable = 'true';
-            spanContent.focus(); // Coloca o cursor no texto para facilitar a edição
-            elementoAtual.textContent = 'salvar'; // Muda o texto do botão para "salvar"
-            elementoAtual.classList.add('salvar-ativo'); // Adiciona uma classe para estilização, se quiser
+            spanContent.focus(); 
+            elementoAtual.textContent = 'salvar'; 
+            elementoAtual.classList.add('salvar-ativo'); 
         } else {
-            // Desabilita a edição e salva
             spanContent.contentEditable = 'false';
             blog.edicaodapostagem(postagensId, spanContent.innerText);
-            elementoAtual.textContent = 'editar'; // Volta o texto do botão para "editar"
-            elementoAtual.classList.remove('salvar-ativo'); // Remove a classe de estilização
+            elementoAtual.textContent = 'editar'; 
+            elementoAtual.classList.remove('salvar-ativo'); 
             console.log('Postagem atualizada:', blog.postagens);
         }
     }

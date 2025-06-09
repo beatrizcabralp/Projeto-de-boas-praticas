@@ -68,7 +68,7 @@ main
   cursor: pointer;
 }
 
-/*
+
 #lista-de-publicacoes
 {
    text-align: justify;
@@ -76,7 +76,7 @@ main
    padding: 15px;
    border: 5px solid burlywood;
    border-radius: 30px;
-}*/
+}
 
 #publicacao
 {
@@ -87,3 +87,23 @@ main
     border-radius: 10px;
     text-align: justify;
 }
+
+
+.editar-publicacao
+{
+    width: 100%;
+    display: flex;
+
+}
+
+.botao-editar, .botao-deletar
+{
+    width: 60px;
+    height: 30px;
+    background-color: burlywood;
+    margin: 20px 0px 0px 0px;
+    color: #FFFFFF;
+    border: 1px solid burlywood;
+    border-radius: 10px;
+}
+
